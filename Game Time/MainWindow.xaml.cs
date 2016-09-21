@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Management;
 
 namespace Game_Time
 {
@@ -20,9 +21,18 @@ namespace Game_Time
     /// </summary>
     public partial class MainWindow : Window
     {
+        public WmiEvent Wmi { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            this.Closed += OnClosed;
+            Wmi = new WmiEvent();
+            //Wmi.Start();
+        }
+
+        private void OnClosed(object sender, EventArgs eventArgs)
+        {
+            Wmi.Stop();
         }
     }
 }

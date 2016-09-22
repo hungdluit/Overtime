@@ -12,18 +12,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Management;
 
 namespace Game_Time
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for BalloonControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BalloonControl : UserControl
     {
-        public MainWindow()
+        public bool Starting { get; set; }
+        public BalloonControl()
         {
             InitializeComponent();
+        }
+
+        public BalloonControl(bool started)
+        {
+            InitializeComponent();
+            Starting = started;
+            if (Starting)
+            {
+                MessageText.Text = "Game Launched";
+            }
+            else
+            {
+                MessageText.Text = "Game Stopped";
+            }
         }
     }
 }

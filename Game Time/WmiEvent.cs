@@ -17,6 +17,8 @@ namespace Game_Time
         public event EventHandler GameStarted;
         public event EventHandler GameStopped;
 
+        private string GameName = "procexp.exe";
+
         public WmiEvent()
         {
             StartWatcher = null;
@@ -59,7 +61,7 @@ namespace Game_Time
         public void ProcessStartEventArrived(object sender, EventArrivedEventArgs e)
         {
             string name = (string) e.NewEvent.Properties["ProcessName"].Value;
-            if (name.Equals("Overwatch.exe"))
+            if (name.Equals(GameName))
             {
                 OnGameStarted();
                 Console.WriteLine("Launched!");
@@ -73,7 +75,7 @@ namespace Game_Time
         public void ProcessStopEventArrived(object sender, EventArrivedEventArgs e)
         {
             string name = (string) e.NewEvent.Properties["ProcessName"].Value;
-            if (name.Equals("Overwatch.exe"))
+            if (name.Equals(GameName))
             {
                 OnGameStopped();
                 Console.WriteLine("Closed!");

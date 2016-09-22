@@ -56,6 +56,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,8 +76,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BalloonControl.xaml.cs">
+      <DependentUpon>BalloonControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NotifyIconViewModel.cs" />
+    <Compile Include="ToolTipControl.xaml.cs">
+      <DependentUpon>ToolTipControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WmiEvent.cs" />
+    <Page Include="BalloonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NotifyIconResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToolTipControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

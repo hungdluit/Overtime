@@ -16,5 +16,8 @@
         <tb:TaskbarIcon.DataContext>
             <local:NotifyIconViewModel/>
         </tb:TaskbarIcon.DataContext>
+        <tb:TaskbarIcon.TrayToolTip>
+            <local:ToolTipControl/>
+        </tb:TaskbarIcon.TrayToolTip>
     </tb:TaskbarIcon>
 </ResourceDictionary>

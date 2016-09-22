@@ -45,6 +45,11 @@ namespace Game_Time
                 return new DelegateCommand {CommandAction = () => Application.Current.Shutdown()};
             }
         }
+
+        public string GetGameTime
+        {
+            get { return "Time: " + DateTime.Now.Minute; }
+        }
     }
 
     class DelegateCommand : ICommand

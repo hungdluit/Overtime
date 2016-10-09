@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Forms;
 using System.Windows.Media;
 using Game_Time.Properties;
 using Hardcodet.Wpf.TaskbarNotification;
+using Application = System.Windows.Application;
 
 namespace Game_Time
 {
@@ -21,6 +24,7 @@ namespace Game_Time
     {
         private TaskbarIcon taskbarIcon;
         public WmiEvent Wmi { get; set; }
+        private StopwatchWindow stopwatchWindow = null;
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -32,8 +36,8 @@ namespace Game_Time
             Wmi.Start();
 
             taskbarIcon = (TaskbarIcon) FindResource("MyNotifyIcon");
-            Game_Time.MainWindow window = new MainWindow();
-            window.Show();
+            //Game_Time.MainWindow window = new MainWindow();
+            //window.Show();
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -50,21 +54,36 @@ namespace Game_Time
                     delegate
                     {
                         taskbarIcon.ShowCustomBalloon(
-                            new BalloonControl(true), 
+                            new BalloonControl(true),
                             PopupAnimation.Fade, 4000);
+                        if (stopwatchWindow == null)
+                        {
+                            stopwatchWindow = new StopwatchWindow();
+                            Screen screen = Screen.AllScreens[1]; //Get second screen
+                            Rectangle area = screen.WorkingArea;
+                            stopwatchWindow.Top = area.Top;
+                            stopwatchWindow.Left = area.Left + ( area.Width / 2 );
+                            stopwatchWindow.Show();
+                            stopwatchWindow.Start();
+                        }
                     });
         }
 
         public void OnGameStopped(object sender, EventArgs e)
         {
             Application.Current.Dispatcher.Invoke(
-           (Action)
-               delegate
-               {
-                   taskbarIcon.ShowCustomBalloon(
-                       new BalloonControl(false),
-                       PopupAnimation.Fade, 4000);
-               });
+                (Action)
+                    delegate
+                    {
+                        taskbarIcon.ShowCustomBalloon(
+                            new BalloonControl(false),
+                            PopupAnimation.Fade, 4000);
+                        if (stopwatchWindow != null)
+                        {
+                            stopwatchWindow.Stop();
+                            stopwatchWindow = null;
+                        }
+                    });
         }
 
         private void CreateDefaultSettings()
@@ -72,10 +91,13 @@ namespace Game_Time
             //Checks that user default settings were initialized
             if (!Settings.Default.DefaultsCreated)
             {
-                string documents = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Game Time"); //Specify our user-log folder
+                string documents = Path.Combine(
+                    System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Game Time");
+                    //Specify our user-log folder
                 Directory.CreateDirectory(documents); //create the directory, if needed
                 Settings.Default.LogFileLocation = documents; //save this directory in our settings
-                Settings.Default.DefaultsCreated = true; //set flag, so that this stuff doesn't happen in subsequent launches
+                Settings.Default.DefaultsCreated = true;
+                    //set flag, so that this stuff doesn't happen in subsequent launches
                 Settings.Default.Save(); //persist changes
             }
             //Check that log file exists, create blank if not

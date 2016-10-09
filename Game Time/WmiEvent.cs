@@ -17,7 +17,7 @@ namespace Game_Time
         public event EventHandler GameStarted;
         public event EventHandler GameStopped;
 
-        private string GameName = "procexp.exe";
+        private string GameName = "overwatch.exe";
 
         public WmiEvent()
         {

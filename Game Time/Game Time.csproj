@@ -91,6 +91,9 @@
     <Compile Include="StopwatchControl.xaml.cs">
       <DependentUpon>StopwatchControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StopwatchWindow.xaml.cs">
+      <DependentUpon>StopwatchWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ToolTipControl.xaml.cs">
       <DependentUpon>ToolTipControl.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StopwatchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StopwatchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

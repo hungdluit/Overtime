@@ -14,7 +14,9 @@ namespace Game_Time
 
         public static void LogGameSession(DateTime start, DateTime end)
         {
-            File.WriteAllText(LogPath, $"{start},{end}\r\n");
+            //Only append log if the game was running for longer than 1 minute
+            if(end - start > TimeSpan.FromMinutes(1))
+                File.AppendAllText(LogPath, $"{start},{end}\r\n");
         }
 
         public static IEnumerable<GameSession> ReadLog()

@@ -29,8 +29,8 @@ namespace Game_Time
             Wmi.Start();
 
             taskbarIcon = (TaskbarIcon) FindResource("MyNotifyIcon");
-            //Game_Time.MainWindow window = new MainWindow();
-            //window.Show();
+            Game_Time.MainWindow window = new MainWindow();
+            window.Show();
         }
 
         protected override void OnExit(ExitEventArgs e)

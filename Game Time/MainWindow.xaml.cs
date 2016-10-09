@@ -24,6 +24,7 @@ namespace Game_Time
         public MainWindow()
         {
             InitializeComponent();
+            Stopwatch.Start();
         }
     }
 }

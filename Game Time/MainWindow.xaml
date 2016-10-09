@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Game Time" Height="350" Width="525">
     <Grid>
-        
+        <local:StopwatchControl x:Name="Stopwatch"></local:StopwatchControl>
     </Grid>
 </Window>

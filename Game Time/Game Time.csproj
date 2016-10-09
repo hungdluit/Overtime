@@ -85,6 +85,7 @@
     <Compile Include="BalloonControl.xaml.cs">
       <DependentUpon>BalloonControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameSession.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="NotifyIconViewModel.cs" />
     <Compile Include="StopwatchControl.xaml.cs">

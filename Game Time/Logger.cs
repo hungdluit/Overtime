@@ -9,7 +9,7 @@ namespace Game_Time
     {
         public static string LogPath
         {
-            get { return Path.Combine(Settings.Default.LogFileLocation, "GameLog.csv"); }
+            get { return Path.Combine(Settings.Default.LogFileLocation, Settings.Default.LogFileName); }
         }
 
         public static void LogGameSession(DateTime start, DateTime end)

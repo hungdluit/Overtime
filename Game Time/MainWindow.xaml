@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Game_Time"
         mc:Ignorable="d"
-        Title="Game Time" Height="350" Width="525">
-    <Grid>
-    </Grid>
+        Title="Game Time" Height="750" Width="450">
+            <local:LogListPage x:Name="LogList"></local:LogListPage>
 </Window>

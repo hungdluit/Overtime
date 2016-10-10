@@ -36,8 +36,8 @@ namespace Game_Time
             Wmi.Start();
 
             taskbarIcon = (TaskbarIcon) FindResource("MyNotifyIcon");
-            //Game_Time.MainWindow window = new MainWindow();
-            //window.Show();
+            Game_Time.MainWindow window = new MainWindow();
+            window.Show();
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -101,7 +101,7 @@ namespace Game_Time
                 Settings.Default.Save(); //persist changes
             }
             //Check that log file exists, create blank if not
-            string logPath = Path.Combine(Settings.Default.LogFileLocation, "GameLog.csv");
+            string logPath = Path.Combine(Settings.Default.LogFileLocation, Settings.Default.LogFileName);
             if (!File.Exists(logPath))
             {
                 File.Create(logPath);

@@ -8,5 +8,8 @@
     <Setting Name="DefaultsCreated" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="LogFileName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">GameLog.csv</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

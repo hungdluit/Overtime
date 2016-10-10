@@ -46,5 +46,14 @@ namespace Game_Time.Properties {
                 this["DefaultsCreated"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("GameLog.csv")]
+        public string LogFileName {
+            get {
+                return ((string)(this["LogFileName"]));
+            }
+        }
     }
 }

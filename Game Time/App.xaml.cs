@@ -38,6 +38,10 @@ namespace Game_Time
             taskbarIcon = (TaskbarIcon) FindResource("MyNotifyIcon");
             Game_Time.MainWindow window = new MainWindow();
             window.Show();
+            foreach (KeyValuePair<DateTime, TimeSpan> pair in Logger.GetHoursPerDay())
+            {
+                Console.WriteLine($"{pair.Key.ToShortDateString()} - {pair.Value.ToString("hh'h'mm'm'ss's'")}");
+            }
         }
 
         protected override void OnExit(ExitEventArgs e)

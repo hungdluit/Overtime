@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Management;
 
-namespace Game_Time
+namespace Overtime
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

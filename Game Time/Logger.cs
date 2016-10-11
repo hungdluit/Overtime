@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Game_Time.Properties;
+using Overtime.Properties;
 
-namespace Game_Time
+namespace Overtime
 {
     public static class Logger
     {
@@ -48,8 +48,9 @@ namespace Game_Time
                 {
                     //Cache starting datetime
                     DateTime current = session.Start;
-                    //iterate arbitray number of days, including EndDate
-                    while (current <= session.End)
+                    //iterate arbitray number of days
+                    //when current == end, we have already finished counting time for the final day
+                    while (current != session.End)
                     {
                         DateTime next = current.Date.AddDays(1); //Set to 12AM, the next day
                         //Set to end time, if 'next' is past the end time on that day

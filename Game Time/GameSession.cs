@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game_Time
+namespace Overtime
 {
     public class GameSession
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Game_Time.Properties {
+namespace Overtime.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Game_Time
+namespace Overtime
 {
     /// <summary>
     /// Interaction logic for BalloonControl.xaml
@@ -21,6 +21,7 @@ namespace Game_Time
     public partial class BalloonControl : UserControl
     {
         public bool Starting { get; set; }
+
         public BalloonControl()
         {
             InitializeComponent();

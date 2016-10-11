@@ -11,11 +11,11 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using System.Windows.Media;
-using Game_Time.Properties;
 using Hardcodet.Wpf.TaskbarNotification;
+using Overtime.Properties;
 using Application = System.Windows.Application;
 
-namespace Game_Time
+namespace Overtime
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -36,7 +36,7 @@ namespace Game_Time
             Wmi.Start();
 
             taskbarIcon = (TaskbarIcon) FindResource("MyNotifyIcon");
-            Game_Time.MainWindow window = new MainWindow();
+            MainWindow window = new MainWindow();
             window.Show();
             foreach (KeyValuePair<DateTime, TimeSpan> pair in Logger.GetHoursPerDay())
             {

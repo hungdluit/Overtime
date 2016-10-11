@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Management;
 using System.Management.Instrumentation;
 
-namespace Game_Time
+namespace Overtime
 {
     public class WmiEvent
     {

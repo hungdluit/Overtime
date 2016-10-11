@@ -6,5 +6,19 @@
         xmlns:local="clr-namespace:Game_Time"
         mc:Ignorable="d"
         Title="Game Time" Height="750" Width="450">
-            <local:LogListPage x:Name="LogList"></local:LogListPage>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" x:Name="BtnListView">View as list</Button>
+        <Button Grid.Row="0" Grid.Column="1" x:Name="BtnTimelineView">View timeline</Button>
+        <Button Grid.Row="0" Grid.Column="2" x:Name="BtnTimecard">View timecard</Button>
+        <Frame Source="LogListPage.xaml" Name="PageFrame" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+    </Grid>
 </Window>

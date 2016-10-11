@@ -90,6 +90,9 @@
     <Compile Include="LogListPage.xaml.cs">
       <DependentUpon>LogListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LogRowControl.xaml.cs">
+      <DependentUpon>LogRowControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NotifyIconViewModel.cs" />
     <Compile Include="StopwatchControl.xaml.cs">
       <DependentUpon>StopwatchControl.xaml</DependentUpon>
@@ -106,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LogListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogRowControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

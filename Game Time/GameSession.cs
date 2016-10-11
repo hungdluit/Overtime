@@ -11,6 +11,8 @@ namespace Game_Time
         public DateTime Start { get; set; }
 
         public string StartTimeString { get { return Start.ToShortTimeString(); } }
+
+        public string StartDateString { get { return Start.ToShortDateString(); } }
         public DateTime End { get; set; }
         public string EndTimeString { get { return End.ToShortTimeString(); } }
 

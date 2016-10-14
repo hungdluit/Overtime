@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Overtime", "Game Time\Overtime.csproj", "{919AF84C-D059-4976-AC69-E42016B58F9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwapiClient", "OwapiClient\OwapiClient.csproj", "{940503E6-6D9D-40B1-B4CB-0855B937DBA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owapi Tests", "Owapi Tests\Owapi Tests.csproj", "{F8DDFE9C-19FA-4C85-AE8A-2B083FC9AC62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{919AF84C-D059-4976-AC69-E42016B58F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{919AF84C-D059-4976-AC69-E42016B58F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{919AF84C-D059-4976-AC69-E42016B58F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{940503E6-6D9D-40B1-B4CB-0855B937DBA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{940503E6-6D9D-40B1-B4CB-0855B937DBA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{940503E6-6D9D-40B1-B4CB-0855B937DBA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{940503E6-6D9D-40B1-B4CB-0855B937DBA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8DDFE9C-19FA-4C85-AE8A-2B083FC9AC62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8DDFE9C-19FA-4C85-AE8A-2B083FC9AC62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8DDFE9C-19FA-4C85-AE8A-2B083FC9AC62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8DDFE9C-19FA-4C85-AE8A-2B083FC9AC62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

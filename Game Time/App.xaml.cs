@@ -96,7 +96,7 @@ namespace Overtime
             if (!Settings.Default.DefaultsCreated)
             {
                 string documents = Path.Combine(
-                    System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Game Time");
+                    System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Overtime");
                     //Specify our user-log folder
                 Directory.CreateDirectory(documents); //create the directory, if needed
                 Settings.Default.LogFileLocation = documents; //save this directory in our settings

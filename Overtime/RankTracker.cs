@@ -1,23 +1,21 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Timers;
+using System.Threading;
 using OwapiClient;
 
 namespace Overtime
 {
-    public class RankTracker:INotifyPropertyChanged
+    public class RankTracker : INotifyPropertyChanged
     {
         public string BattleTag { get; set; }
         public int Rank { get; set; }
         private Timer timer;
 
-        public bool Running => timer.Enabled;
+        public bool Running => timer != null;
 
         public RankTracker(string battletag)
         {
             BattleTag = battletag;
-            timer = new Timer(1000);
-            timer.Elapsed += (sender, args) => { CheckAndLog(); };
         }
 
         public void CheckAndLog()
@@ -30,19 +28,24 @@ namespace Overtime
                 //Log it
                 Logger.LogRank(DateTime.Now, rank);
                 //Trigger property event, for UI
-                OnPropertyChanged(this, new PropertyChangedEventArgs("Rank"));
+                //OnPropertyChanged(this, new PropertyChangedEventArgs("Rank"));
             }
         }
 
         public void Start()
         {
             CheckAndLog();
-            timer.Start();
+            timer = new Timer(s =>
+            {
+                CheckAndLog();
+                OnPropertyChanged(this, new PropertyChangedEventArgs("Rank"));
+            }, null, 1000, 1000);
         }
 
         public void Stop()
         {
-            timer.Stop();
+            timer.Dispose();
+            timer = null;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -51,6 +54,7 @@ namespace Overtime
         {
             if (this.PropertyChanged != null)
             {
+                Console.WriteLine("Changed");
                 PropertyChanged(sender, e);
             }
         }

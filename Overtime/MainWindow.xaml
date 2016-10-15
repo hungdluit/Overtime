@@ -20,6 +20,7 @@
         <Button Grid.Column="0" x:Name="BtnListView">View as list</Button>
         <Button Grid.Row="0" Grid.Column="1" x:Name="BtnTimelineView">View timeline</Button>
         <Button Grid.Row="0" Grid.Column="2" x:Name="BtnTimecard">View timecard</Button>
+        <local:RankControl></local:RankControl>
         <Frame Source="LogListPage.xaml" Name="PageFrame" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
     </Grid>
 </Window>

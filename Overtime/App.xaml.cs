@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using Hardcodet.Wpf.TaskbarNotification;
+using Microsoft.Win32;
 using Overtime.Properties;
 using Application = System.Windows.Application;
 
@@ -30,12 +32,13 @@ namespace Overtime
             Wmi.Start();
 
             taskbarIcon = (TaskbarIcon) FindResource("MyNotifyIcon");
-            MainWindow window = new MainWindow();
-            window.Show();
+            //MainWindow window = new MainWindow();
+            //window.Show();
             foreach (KeyValuePair<DateTime, TimeSpan> pair in Logger.GetTotalPlayHoursByDay())
             {
                 Console.WriteLine($"{pair.Key.ToShortDateString()} - {pair.Value.ToString("hh'h'mm'm'ss's'")}");
             }
+            //StartWithWindows(); //Register to start on boot
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -103,6 +106,19 @@ namespace Overtime
             if (!File.Exists(logPath))
             {
                 File.Create(logPath);
+            }
+        }
+
+        public void StartWithWindows(bool enabled = true)
+        {
+            RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if (enabled && rkApp.GetValue("Overtime") == null)
+            {
+                rkApp.SetValue("Overtime", Assembly.GetExecutingAssembly().Location);
+            }
+            if (!enabled && rkApp.GetValue("Overtime") != null)
+            {
+                rkApp.DeleteValue("Overtime", false);
             }
         }
     }

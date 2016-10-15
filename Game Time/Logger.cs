@@ -28,7 +28,7 @@ namespace Overtime
             }
         }
 
-        public static Dictionary<DateTime, TimeSpan> GetHoursPerDay()
+        public static Dictionary<DateTime, TimeSpan> GetTotalPlayHoursByDay()
         {
             Dictionary<DateTime, TimeSpan> results = new Dictionary<DateTime, TimeSpan>();
             foreach (GameSession session in ReadLog())

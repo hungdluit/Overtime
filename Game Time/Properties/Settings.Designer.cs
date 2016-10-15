@@ -55,5 +55,14 @@ namespace Overtime.Properties {
                 return ((string)(this["LogFileName"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("HeroLog.csv")]
+        public string HeroLogFileName {
+            get {
+                return ((string)(this["HeroLogFileName"]));
+            }
+        }
     }
 }

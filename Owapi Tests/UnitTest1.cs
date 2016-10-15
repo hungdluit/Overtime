@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OwapiClient;
 
@@ -12,7 +13,7 @@ namespace Owapi_Tests
         public void GetBlob()
         {
             OClient client = new OClient();
-            client.GetHeroPlaytimes(battletag);
+            Debug.WriteLine(client.GetCompetitiveRank(battletag));
         }
     }
 }

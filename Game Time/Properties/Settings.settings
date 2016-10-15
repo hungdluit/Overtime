@@ -11,5 +11,8 @@
     <Setting Name="LogFileName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">GameLog.csv</Value>
     </Setting>
+    <Setting Name="HeroLogFileName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">HeroLog.csv</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

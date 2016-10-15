@@ -38,7 +38,7 @@ namespace Overtime
             taskbarIcon = (TaskbarIcon) FindResource("MyNotifyIcon");
             MainWindow window = new MainWindow();
             window.Show();
-            foreach (KeyValuePair<DateTime, TimeSpan> pair in Logger.GetHoursPerDay())
+            foreach (KeyValuePair<DateTime, TimeSpan> pair in Logger.GetTotalPlayHoursByDay())
             {
                 Console.WriteLine($"{pair.Key.ToShortDateString()} - {pair.Value.ToString("hh'h'mm'm'ss's'")}");
             }

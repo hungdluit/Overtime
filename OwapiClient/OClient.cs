@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 
 namespace OwapiClient
@@ -49,6 +51,13 @@ namespace OwapiClient
             string responseJson = client.Execute(GetBlobRequest(battletag)).Content;
             OwapiResponse re = JsonConvert.DeserializeObject<OwapiResponse>(responseJson);
             return re.UsRegion.Heroes.Playtime;
+        }
+
+        public int GetCompetitiveRank(string battletag)
+        {
+            string responseJson = new RestClient("https://owapi.net").Execute(GetUserStats(battletag)).Content;
+            JObject jObject = JObject.Parse(responseJson);
+            return (int) jObject.SelectToken("us.stats.competitive.overall_stats.comprank");
         }
     }
 }

@@ -98,6 +98,7 @@
       <DependentUpon>BalloonControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameSession.cs" />
+    <Compile Include="HeroTracker.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="LogListPage.xaml.cs">
       <DependentUpon>LogListPage.xaml</DependentUpon>
@@ -106,6 +107,7 @@
       <DependentUpon>LogRowControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="NotifyIconViewModel.cs" />
+    <Compile Include="RankTracker.cs" />
     <Compile Include="StopwatchControl.xaml.cs">
       <DependentUpon>StopwatchControl.xaml</DependentUpon>
     </Compile>
@@ -201,6 +203,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OwapiClient\OwapiClient.csproj">
+      <Project>{940503e6-6d9d-40b1-b4cb-0855b937dba7}</Project>
+      <Name>OwapiClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

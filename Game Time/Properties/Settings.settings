@@ -14,5 +14,14 @@
     <Setting Name="HeroLogFileName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">HeroLog.csv</Value>
     </Setting>
+    <Setting Name="RankLogFileName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RankLog.csv</Value>
+    </Setting>
+    <Setting Name="BattleTag" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MaybeMonad-11686</Value>
+    </Setting>
+    <Setting Name="OwapiServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://owapi.net</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

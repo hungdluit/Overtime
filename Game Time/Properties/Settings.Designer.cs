@@ -64,5 +64,38 @@ namespace Overtime.Properties {
                 return ((string)(this["HeroLogFileName"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("RankLog.csv")]
+        public string RankLogFileName {
+            get {
+                return ((string)(this["RankLogFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MaybeMonad-11686")]
+        public string BattleTag {
+            get {
+                return ((string)(this["BattleTag"]));
+            }
+            set {
+                this["BattleTag"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://owapi.net")]
+        public string OwapiServer {
+            get {
+                return ((string)(this["OwapiServer"]));
+            }
+            set {
+                this["OwapiServer"] = value;
+            }
+        }
     }
 }

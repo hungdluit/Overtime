@@ -1,21 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Overtime
 {
@@ -55,7 +42,7 @@ namespace Overtime
             StartTime = DateTime.Now; //capture start time
             stopwatch = Stopwatch.StartNew(); //start stopwatch
             timer =
-                new Timer((s) => OnPropertyChanged(this, new PropertyChangedEventArgs("TimeString")),
+                new Timer(s => OnPropertyChanged(this, new PropertyChangedEventArgs("TimeString")),
                     null, 1000, 1000); //set and start a timer to fire TimeString's PropertyChanged event every 1000ms
         }
 

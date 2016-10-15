@@ -107,12 +107,15 @@
       <DependentUpon>LogRowControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="NotifyIconViewModel.cs" />
+    <Compile Include="RankControl.xaml.cs">
+      <DependentUpon>RankControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RankTracker.cs" />
     <Compile Include="StopwatchControl.xaml.cs">
       <DependentUpon>StopwatchControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StopwatchWindow.xaml.cs">
-      <DependentUpon>StopwatchWindow.xaml</DependentUpon>
+    <Compile Include="InGameWindow.xaml.cs">
+      <DependentUpon>InGameWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ToolTipControl.xaml.cs">
       <DependentUpon>ToolTipControl.xaml</DependentUpon>
@@ -146,11 +149,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RankControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StopwatchControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StopwatchWindow.xaml">
+    <Page Include="InGameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,30 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Overtime.Properties;
 
 namespace Overtime
 {
     /// <summary>
-    /// Interaction logic for StopwatchWindow.xaml
+    /// Interaction logic for RankControl.xaml
     /// </summary>
-    public partial class StopwatchWindow : Window
+    public partial class RankControl : UserControl
     {
-        public StopwatchWindow()
+        public RankTracker RankTracker { get; set; }
+        public RankControl()
         {
             InitializeComponent();
+            RankTracker = new RankTracker(Settings.Default.BattleTag);
+            RankTracker.Start();
+            RankText.DataContext = RankTracker;
         }
 
-        public void Start()
-        {
-            Stopwatch.Start();
-        }
-
-        public void Stop()
-        {
-            Stopwatch.Stop();
-            Logger.LogGameSession(Stopwatch.StartTime, Stopwatch.EndTime);
-            Close();
-        }
     }
 }

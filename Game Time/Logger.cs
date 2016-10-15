@@ -1,27 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Overtime.Properties;
 
 namespace Overtime
 {
     public static class Logger
     {
-        public static string LogPath
+        public static string TimeLogPath
         {
             get { return Path.Combine(Settings.Default.LogFileLocation, Settings.Default.LogFileName); }
+        }
+
+        public static string RankLogPath
+        {
+            get { return Path.Combine(Settings.Default.LogFileLocation, Settings.Default.RankLogFileName); }
         }
 
         public static void LogGameSession(DateTime start, DateTime end)
         {
             //Only append log if the game was running for longer than 1 minute
             if (end - start > TimeSpan.FromMinutes(1))
-                File.AppendAllText(LogPath, $"{start},{end}\r\n");
+                File.AppendAllText(TimeLogPath, $"{start},{end}\r\n");
         }
 
         public static IEnumerable<GameSession> ReadLog()
         {
-            foreach (string line in File.ReadAllLines(LogPath))
+            foreach (string line in File.ReadAllLines(TimeLogPath))
             {
                 string[] dateStrings = line.Replace("\r\n", "").Split(',');
                 yield return new GameSession(DateTime.Parse(dateStrings[0]), DateTime.Parse(dateStrings[1]));
@@ -68,6 +74,26 @@ namespace Overtime
                 }
             }
             return results;
+        }
+
+        public static void LogRank(DateTime timestamp, int rank)
+        {
+            //Create if needed
+            if (!File.Exists(RankLogPath))
+                File.Create(RankLogPath);
+            File.AppendAllText(RankLogPath, $"{rank},{timestamp}\r\n");
+        }
+
+        public static int? ReadLastRank()
+        {
+            //Nothing to even read
+            if (!File.Exists(RankLogPath))
+                return null;
+            string[] logLines = File.ReadAllLines(RankLogPath);
+            //Empty log
+            if (logLines.Length == 0)
+                return null;
+            return int.Parse(logLines.Last().Split(',')[0]); //Just get the first field from the last line
         }
     }
 }

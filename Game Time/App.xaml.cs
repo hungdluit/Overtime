@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
-using System.Windows.Media;
 using Hardcodet.Wpf.TaskbarNotification;
 using Overtime.Properties;
 using Application = System.Windows.Application;
@@ -24,7 +18,7 @@ namespace Overtime
     {
         private TaskbarIcon taskbarIcon;
         public WmiEvent Wmi { get; set; }
-        private StopwatchWindow stopwatchWindow = null;
+        private InGameWindow inGameWindow = null;
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -60,15 +54,15 @@ namespace Overtime
                         taskbarIcon.ShowCustomBalloon(
                             new BalloonControl(true),
                             PopupAnimation.Fade, 4000);
-                        if (stopwatchWindow == null)
+                        if (inGameWindow == null)
                         {
-                            stopwatchWindow = new StopwatchWindow();
+                            inGameWindow = new InGameWindow();
                             Screen screen = Screen.AllScreens[1]; //Get second screen
                             Rectangle area = screen.WorkingArea;
-                            stopwatchWindow.Top = area.Top;
-                            stopwatchWindow.Left = area.Left + ( area.Width / 2 );
-                            stopwatchWindow.Show();
-                            stopwatchWindow.Start();
+                            inGameWindow.Top = area.Top;
+                            inGameWindow.Left = area.Left + ( area.Width / 2 );
+                            inGameWindow.Show();
+                            inGameWindow.Start();
                         }
                     });
         }
@@ -82,10 +76,10 @@ namespace Overtime
                         taskbarIcon.ShowCustomBalloon(
                             new BalloonControl(false),
                             PopupAnimation.Fade, 4000);
-                        if (stopwatchWindow != null)
+                        if (inGameWindow != null)
                         {
-                            stopwatchWindow.Stop();
-                            stopwatchWindow = null;
+                            inGameWindow.Stop();
+                            inGameWindow = null;
                         }
                     });
         }

@@ -12,7 +12,7 @@ namespace Overtime
             {
                 return new DelegateCommand
                 {
-                    CanExecFunc = () => App.Current.MainWindow == null,
+                    CanExecFunc = () => Application.Current.MainWindow == null,
                     CommandAction = () =>
                     {
                         Application.Current.MainWindow = new MainWindow();
@@ -30,6 +30,23 @@ namespace Overtime
                 {
                     CommandAction = () => Application.Current.MainWindow.Close(),
                     CanExecFunc = () => Application.Current.MainWindow != null
+                };
+            }
+        }
+
+        public ICommand StartTimer { get { return new DelegateCommand
+        {
+            CommandAction = () => ((App) Application.Current).Wmi.StartTimer(),
+            CanExecFunc = () => ((App)Application.Current)?.Wmi.Started == false
+        };} }
+        public ICommand StopTimer
+        {
+            get
+            {
+                return new DelegateCommand
+                {
+                    CommandAction = () => ((App)Application.Current).Wmi.StopTimer(),
+                    CanExecFunc = () => ((App)Application.Current)?.Wmi.Started == true
                 };
             }
         }

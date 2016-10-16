@@ -5,6 +5,8 @@
     <ContextMenu x:Shared="False" x:Key="SysTrayMenu">
         <MenuItem Header="Show" Command="{Binding ShowWindowCommand}"/>
         <MenuItem Header="Hide" Command="{Binding HideWindowCommand}"/>
+        <MenuItem Header="Start Timer" Command="{Binding StartTimer}"/>
+        <MenuItem Header="Stop Timer" Command="{Binding StopTimer}"/>
         <Separator/>
         <MenuItem Header="Exit" Command="{Binding ExitApplicationCommand}"/>
     </ContextMenu>

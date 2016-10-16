@@ -38,7 +38,6 @@ namespace Overtime
             {
                 Console.WriteLine($"{pair.Key.ToShortDateString()} - {pair.Value.ToString("hh'h'mm'm'ss's'")}");
             }
-            //StartWithWindows(); //Register to start on boot
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -109,17 +108,5 @@ namespace Overtime
             }
         }
 
-        public void StartWithWindows(bool enabled = true)
-        {
-            RegistryKey rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            if (enabled && rkApp.GetValue("Overtime") == null)
-            {
-                rkApp.SetValue("Overtime", Assembly.GetExecutingAssembly().Location);
-            }
-            if (!enabled && rkApp.GetValue("Overtime") != null)
-            {
-                rkApp.DeleteValue("Overtime", false);
-            }
-        }
     }
 }

@@ -14,6 +14,8 @@ namespace Overtime
 
         private string GameName = "Overwatch.exe";
 
+        public bool Started { get; private set; } = false;
+
         public WmiEvent()
         {
             StartWatcher = null;
@@ -80,11 +82,20 @@ namespace Overtime
         protected virtual void OnGameStarted()
         {
             GameStarted?.Invoke(this, EventArgs.Empty);
+            Started = true;
         }
 
         protected virtual void OnGameStopped()
         {
             GameStopped?.Invoke(this, EventArgs.Empty);
+            Started = false;
         }
+
+        public void StartTimer()
+        {
+            OnGameStarted();
+        }
+
+        public void StopTimer() => OnGameStopped();
     }
 }

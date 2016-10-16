@@ -30,24 +30,44 @@ namespace OwapiClient
 
         public HtmlDocument GetPageDoc(string url)
         {
-            WebRequest request = WebRequest.Create(url);
-            WebResponse resp = request.GetResponse();
-            HtmlDocument doc = new HtmlDocument();
-            doc.Load(resp.GetResponseStream());
-            return doc;
+            try
+            {
+                WebRequest request = WebRequest.Create(url);
+                WebResponse resp = request.GetResponse();
+                HtmlDocument doc = new HtmlDocument();
+                doc.Load(resp.GetResponseStream());
+                return doc;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
-        public void RefreshPage() => CachedPage = GetPageDoc(BaseUrl);
+        public void RefreshPage()
+        {
+            try
+            {
+                CachedPage = GetPageDoc(BaseUrl);
+            }
+            catch (Exception)
+            {
+                CachedPage = null;
+            }
+        }
 
         public int GetRank()
         {
             RefreshPage();
+            if (CachedPage == null)
+                return -1;
             return int.Parse(CachedPage.DocumentNode.SelectSingleNode(".//div[@class='competitive-rank']/div").InnerText);
         }
 
         public Dictionary<string, TimeSpan> GetHeroTimesQuickplay()
         {
             RefreshPage();
+            if (CachedPage == null) return null;
             Dictionary<string, TimeSpan> heroes = new Dictionary<string, TimeSpan>();
             HtmlNode comparisons = CachedPage.DocumentNode.SelectSingleNode(".//div[@data-group-id='comparisons']");
             HtmlNodeCollection nodes = comparisons.SelectNodes("//div[@class='bar-text']");
@@ -81,6 +101,7 @@ namespace OwapiClient
         public Dictionary<string, TimeSpan> GetHeroTimesCompetitive()
         {
             RefreshPage();
+            if (CachedPage == null) return null;
             Dictionary<string, TimeSpan> heroes = new Dictionary<string, TimeSpan>();
             HtmlNode comparisons = CachedPage.DocumentNode.SelectSingleNode(".//div[@id='competitive-play']/section/div/div[@data-group-id='comparisons']");
             foreach (HtmlNode node in comparisons.ChildNodes)

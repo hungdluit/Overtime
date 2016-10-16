@@ -24,10 +24,10 @@ namespace Owapi_Tests
             //    Console.WriteLine($"{keyValuePair.Key} - {keyValuePair.Value.TotalHours}");
             //}
             Dictionary<string, TimeSpan> heroTimesCompetitive = b.GetHeroTimesCompetitive();
-            foreach (KeyValuePair<string, TimeSpan> keyValuePair in heroTimesCompetitive)
-            {
-                Console.WriteLine($"{keyValuePair.Key} - {keyValuePair.Value.TotalHours}");
-            }
+            //foreach (KeyValuePair<string, TimeSpan> keyValuePair in heroTimesCompetitive)
+            //{
+            //    Console.WriteLine($"{keyValuePair.Key} - {keyValuePair.Value.TotalHours}");
+            //}
         }
     }
 }
